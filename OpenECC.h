@@ -29,6 +29,9 @@
 #ifndef __OpenECC_H__
 #define __OpenECC_H__
 
+
+#include <stdint.h>
+
 /**
  * Support for both ZigBee Smart Energy 1.x and 1.2
  * Use curve sect163k1 for ZigBee Smart Energy 1.x
@@ -45,11 +48,11 @@
 /**
  * Define data type
  */
-typedef unsigned char uint8;          /* Unsigned 8  bit value */
-typedef unsigned short uint16;        /* Unsigned 16 bit value */
-typedef unsigned long uint32;         /* Unsigned 32 bit value */
-typedef unsigned long long uint64;    /* Unsigned 64 bit value */
-typedef long int sint32;              /* Signed 32 bit value */
+typedef uint8_t uint8;          /* Unsigned 8  bit value */
+typedef uint16_t uint16;        /* Unsigned 16 bit value */
+typedef uint32_t uint32;         /* Unsigned 32 bit value */
+typedef uint64_t uint64;    /* Unsigned 64 bit value */
+typedef int32_t sint32;              /* Signed 32 bit value */
 
 /**
  * Define macros
