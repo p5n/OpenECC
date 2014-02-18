@@ -85,7 +85,7 @@ void partial_mod(uint32 *k, uint32 *r0, uint32 *r1, uint32 curve_id);
 /**
  * Width-5 TNAF expansion 
  */
-void TNAF5_expansion(uint32 *r0, uint32 *r1, char *u, uint32 curve_id);
+void TNAF5_expansion(uint32 *r0, uint32 *r1, signed char *u, uint32 curve_id);
 
 /**
  * Scalar multiplication with the width-5 TNAF (fixed point)

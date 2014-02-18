@@ -1304,9 +1304,9 @@ void partial_mod(uint32 *k, uint32 *r0, uint32 *r1, uint32 curve_id)
 /*******************************************************************************************
  Compute a width-5 TNAF of an element in Z[t]
  ********************************************************************************************/
-void TNAF5_expansion(uint32 *r0, uint32 *r1, char *u, uint32 curve_id)
+void TNAF5_expansion(uint32 *r0, uint32 *r1, signed char *u, uint32 curve_id)
 {	
-	char t;
+	signed char t;
 	uint32 i, j, r, c, v, Num;
 	uint64 T;
 	uint32 s0[4], s1[4], s2[4];
@@ -1365,8 +1365,8 @@ void TNAF5_expansion(uint32 *r0, uint32 *r1, char *u, uint32 curve_id)
 				//get the lowest 5 bits of r0+tw*r1 
 				r = r & 0x1f;
 
-				if(r >= 0 && r <= 16) t = (char)r;
-				else t = (char)r - 32;
+				if(r >= 0 && r <= 16) t = (signed char)r;
+				else t = (signed char)r - 32;
 
 				*(u + i) = t;
 			}
@@ -1386,8 +1386,8 @@ void TNAF5_expansion(uint32 *r0, uint32 *r1, char *u, uint32 curve_id)
 				//get the lowest 5 bits of r0+tw*r1 
 				r = r & 0x1f;
 
-				if(r >= 0 && r <= 16) t = -(char)r;
-				else t = 32 - (char)r;
+				if(r >= 0 && r <= 16) t = -(signed char)r;
+				else t = 32 - (signed char)r;
 
 				*(u + i) = t;
 			}
@@ -1407,8 +1407,8 @@ void TNAF5_expansion(uint32 *r0, uint32 *r1, char *u, uint32 curve_id)
 				//take out the lowest 5 bits of r0+(32+tw)*|r1| 
 				r = r & 0x1f;
 
-				if(r >= 0 && r <= 16) t = (char)r;
-				else t = (char)r - 32;
+				if(r >= 0 && r <= 16) t = (signed char)r;
+				else t = (signed char)r - 32;
 
 				*(u + i) = t;
 			}
@@ -1428,8 +1428,8 @@ void TNAF5_expansion(uint32 *r0, uint32 *r1, char *u, uint32 curve_id)
 				//take out the lowest 5 bits of -(|r0|+(32+tw)*r1) 
 				r = r & 0x1f;
 
-				if(r >= 0 && r <= 16) t = -(char)r;
-				else t = 32 - (char)r;
+				if(r >= 0 && r <= 16) t = -(signed char)r;
+				else t = 32 - (signed char)r;
 
 				*(u + i) = t;
 			}
@@ -1765,7 +1765,7 @@ void TNAF5_expansion(uint32 *r0, uint32 *r1, char *u, uint32 curve_id)
   *************************************************************************************************/
   void TNAF5_fixed_scalarmul(uint32 *k, ec_point_aff *Q, uint32 curve_id)
   {
-	  char a[236] = {0x0};
+	  signed char a[236] = {0x0};
 	  uint32 i, Num, BitLen;
 	  uint32 lamda0[5];
 	  uint32 lamda1[5];
@@ -1849,7 +1849,7 @@ void TNAF5_expansion(uint32 *r0, uint32 *r1, char *u, uint32 curve_id)
   *************************************************************************************************/
   void TNAF5_random_scalarmul(uint32 *k, ec_point_aff *P, ec_point_aff *Q, uint32 curve_id)
   {
-	  char a[236] = {0x0};
+	  signed char a[236] = {0x0};
 	  uint32 i, Num, BitLen;
 	  uint32 lamda0[5];
 	  uint32 lamda1[5];
